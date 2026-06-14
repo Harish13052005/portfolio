@@ -1,10 +1,10 @@
-<!DOCTYPE html>
 <html lang="en">
+  <!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Harish Kumar Chilumula — Full Stack Developer</title>
-<meta name="description" content="Full Stack Developer & AI Builder — MERN Stack, Python, Microsoft Azure. Portfolio of Harish Kumar Chilumula.">
+<meta name="description" content="Full Stack Developer & AI Builder — Computer Science Engineering Graduate. MERN Stack, Python, Microsoft Azure.">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;700;800&display=swap');
 
@@ -31,6 +31,14 @@
     overflow-x: hidden;
     min-height: 100vh;
   }
+
+  /* REVEAL ANIMATION */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+  }
+  .reveal.active { opacity: 1; transform: translateY(0); }
 
   /* NAV */
   nav {
@@ -198,6 +206,18 @@
   .project-link:hover { border-color: var(--accent); }
   .project-link svg { width: 13px; height: 13px; }
 
+  /* EDUCATION CARD */
+  .edu-card {
+    background: rgba(124,111,255,0.03);
+    border: 0.5px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+  }
+  .edu-title { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; color: var(--text); }
+  .edu-school { font-size: 0.9rem; color: var(--accent); margin: 0.2rem 0; }
+  .edu-meta { font-size: 0.8rem; color: var(--muted); }
+
   /* EXPERIENCE */
   .exp-item { display: grid; grid-template-columns: 160px 1fr; gap: 2rem; padding: 2rem 0; border-bottom: 0.5px solid var(--border); }
   .exp-date { font-size: 0.8rem; color: var(--muted); padding-top: 0.25rem; }
@@ -284,13 +304,13 @@
   <canvas id="canvas3d" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;"></canvas>
   <div class="hero-content">
     <div class="hero-tag">Available for opportunities · 2026</div>
-    <h1 class="hero-name">Harish Kumar<br>Chilumula</h1>
-    <p class="hero-role">Full Stack Developer &amp; <span>AI-driven Builder</span></p>
+    <h1 class="hero-name reveal">Harish Kumar<br>Chilumula</h1>
+    <p class="hero-role reveal">Full Stack Developer &amp; <span>AI-driven Builder</span></p>
     <p class="hero-desc">
-      Computer Science undergrad from Karimnagar, passionate about crafting scalable web applications,
+      Computer Science Engineering graduate from Karimnagar, passionate about crafting scalable web applications,
       intelligent systems, and real-world solutions with MERN &amp; AI.
     </p>
-    <div class="hero-btns">
+    <div class="hero-btns reveal">
       <a href="#projects" class="btn-primary">View Projects</a>
       <a href="#contact" class="btn-ghost">Get in Touch</a>
     </div>
@@ -305,27 +325,31 @@
 
 <!-- ABOUT -->
 <div class="section-wrap" id="about">
-  <div class="section-label">01 — About</div>
-  <h2 class="section-title">Who I Am</h2>
+  <div class="section-label reveal">01 — About</div>
+  <h2 class="section-title reveal">Who I Am</h2>
   <div class="about-grid">
-    <div>
+    <div class="reveal">
       <p class="about-bio">
-        I'm a <strong>B.Tech Computer Engineering student</strong> at Kamala Institute of Technology &amp; Science (2022–2026),
-        deeply passionate about building full-stack products that solve real problems.
+        I am a <strong>Computer Science Engineering graduate</strong> from the Kamala Institute of Technology &amp; Science,
+        passionate about building full-stack products that bridge the gap between complex code and user-centric design.
         I work with the <strong>MERN stack</strong>, cloud platforms like <strong>Microsoft Azure</strong>,
-        and love exploring the intersection of software and <strong>AI-driven solutions</strong>.
-        Passionate about solving real-world problems using scalable software.
+        and love exploring <strong>AI-driven automation</strong> to solve real-world problems.
       </p>
+      
+      <div class="edu-card">
+        <div class="edu-title">Bachelor of Technology in CSE</div>
+        <div class="edu-school">Kamala Institute of Technology & Science</div>
+        <div class="edu-meta">2022 — 2026 · Karimnagar, TS</div>
+      </div>
+
       <div class="about-meta">
-        <div class="about-meta-item">📍 Karimnagar, Telangana, India</div>
-        <div class="about-meta-item">🎓 B.Tech CSE · Kamala Institute of Technology &amp; Science · 2022–2026</div>
-        <div class="about-meta-item">📧 <a href="mailto:hkumar89595@gmail.com">hkumar89595@gmail.com</a></div>
+        <div class="about-meta-item">📧 <a href="mailto:harishkumarchilumula3@gmail.com">harishkumarchilumula3@gmail.com</a></div>
         <div class="about-meta-item">📞 +91 7075064148</div>
         <div class="about-meta-item">💼 <a href="https://linkedin.com/in/harish-kumar-chilumula-151250337" target="_blank">LinkedIn</a></div>
         <div class="about-meta-item">🐙 <a href="https://github.com/Harish13052005" target="_blank">GitHub</a></div>
       </div>
     </div>
-    <div class="skills-side">
+    <div class="skills-side reveal">
       <div>
         <div class="skill-group-label">Languages</div>
         <div class="skill-tags">
@@ -373,11 +397,11 @@
 
 <!-- PROJECTS -->
 <div class="section-wrap" id="projects">
-  <div class="section-label">02 — Work</div>
-  <h2 class="section-title">Projects</h2>
+  <div class="section-label reveal">02 — Work</div>
+  <h2 class="section-title reveal">Projects</h2>
   <div class="projects-grid">
 
-    <div class="project-card">
+    <div class="project-card reveal">
       <div class="project-num">001</div>
       <div class="project-name">Echo Sight / HaloGuide</div>
       <p class="project-desc">AI-powered smart assistance platform with real-time guidance, intelligent recommendations, and conversational AI automation features.</p>
@@ -391,7 +415,7 @@
       </a>
     </div>
 
-    <div class="project-card">
+    <div class="project-card reveal">
       <div class="project-num">002</div>
       <div class="project-name">AI Money Mentor</div>
       <p class="project-desc">Personal finance assistant for tracking expenses, analyzing spending habits, generating budgeting insights, and AI-powered financial suggestions.</p>
@@ -405,7 +429,7 @@
       </a>
     </div>
 
-    <div class="project-card">
+    <div class="project-card reveal">
       <div class="project-num">003</div>
       <div class="project-name">Bluestock Fintech</div>
       <p class="project-desc">Stock market analysis and portfolio tracking platform with watchlists, market trend insights, and real-time investment monitoring features.</p>
@@ -419,7 +443,7 @@
       </a>
     </div>
 
-    <div class="project-card">
+    <div class="project-card reveal">
       <div class="project-num">004</div>
       <div class="project-name">Campus Care</div>
       <p class="project-desc">Full-stack complaint management system to submit, track, and resolve campus issues — with admin dashboard, JWT auth, and real-time status updates.</p>
@@ -428,21 +452,7 @@
         <span class="stack-chip">React.js</span><span class="stack-chip">Node.js</span>
         <span class="stack-chip">JWT</span><span class="stack-chip">REST APIs</span>
       </div>
-      <a href="https://github.com/Harish13052005" target="_blank" class="project-link">
-        View on GitHub <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H4M10 2v6"/></svg>
-      </a>
-    </div>
-
-    <div class="project-card">
-      <div class="project-num">005</div>
-      <div class="project-name">AI / ML Mini Projects</div>
-      <p class="project-desc">Collection of ML models for classification and data analysis — with data preprocessing, feature selection, model evaluation, and Generative AI exploration.</p>
-      <div class="project-stack">
-        <span class="stack-chip">Python</span><span class="stack-chip">Scikit-learn</span>
-        <span class="stack-chip">Pandas</span><span class="stack-chip">Gen AI</span>
-        <span class="stack-chip">Data Science</span>
-      </div>
-      <a href="https://github.com/Harish13052005" target="_blank" class="project-link">
+      <a href="https://github.com/Harish13052005/Campus-Care" target="_blank" class="project-link">
         View on GitHub <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H4M10 2v6"/></svg>
       </a>
     </div>
@@ -454,10 +464,10 @@
 
 <!-- EXPERIENCE -->
 <div class="section-wrap" id="experience">
-  <div class="section-label">03 — Experience</div>
-  <h2 class="section-title">Background</h2>
+  <div class="section-label reveal">03 — Background</div>
+  <h2 class="section-title reveal">Experience & Achievements</h2>
 
-  <div class="exp-item">
+  <div class="exp-item reveal">
     <div class="exp-date">Virtual · 2024</div>
     <div>
       <div class="exp-role">Software Development Intern</div>
@@ -470,11 +480,11 @@
     </div>
   </div>
 
-  <div class="exp-item">
-    <div class="exp-date">2023 – Present</div>
+  <div class="exp-item reveal">
+    <div class="exp-date">2023 – 2026</div>
     <div>
-      <div class="exp-role">Community Leader &amp; Volunteer</div>
-      <div class="exp-org">Social Outreach Initiatives</div>
+      <div class="exp-role">NSS Volunteer &amp; Community Leader</div>
+      <div class="exp-org">National Service Scheme (NSS)</div>
       <ul class="exp-points">
         <li>Led and participated in cleanliness drives, awareness campaigns, and social outreach programs.</li>
         <li>Organized events around public health, education, and environmental sustainability.</li>
@@ -483,9 +493,9 @@
     </div>
   </div>
 
-  <div style="margin-top:3.5rem;">
-    <div class="section-label" style="margin-bottom:1.5rem;">Certifications</div>
-    <div class="certs-grid">
+  <div style="margin-top:3.5rem;" class="reveal">
+    <div class="section-label" style="margin-bottom:1.5rem;">Professional Certifications</div>
+    <div class="certs-grid reveal">
       <div class="cert-card">
         <div class="cert-icon">☁️</div>
         <div class="cert-name">Microsoft Azure Internship</div>
@@ -519,15 +529,15 @@
 
 <!-- CONTACT -->
 <div class="section-wrap" id="contact" style="text-align:center;">
-  <div class="section-label">04 — Contact</div>
-  <h2 class="section-title">Let's Build Together</h2>
-  <p style="color:var(--muted);font-size:1rem;max-width:520px;margin:0 auto 2.5rem;line-height:1.75;">
+  <div class="section-label reveal">04 — Contact</div>
+  <h2 class="section-title reveal">Let's Build Together</h2>
+  <p class="reveal" style="color:var(--muted);font-size:1rem;max-width:520px;margin:0 auto 2.5rem;line-height:1.75;">
     Open to internships, collaborations, and full-time opportunities. Let's create something great.
   </p>
-  <div style="margin-bottom:2.5rem;">
-    <a href="mailto:hkumar89595@gmail.com" class="contact-email">hkumar89595@gmail.com</a>
+  <div style="margin-bottom:2.5rem;" class="reveal">
+    <a href="mailto:harishkumarchilumula3@gmail.com" class="contact-email">harishkumarchilumula3@gmail.com</a>
   </div>
-  <div class="social-links">
+  <div class="social-links reveal">
     <a href="https://github.com/Harish13052005" target="_blank" class="social-link">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
       GitHub
@@ -619,6 +629,22 @@
     particles.forEach(p => { p.update(); p.draw(); });
     requestAnimationFrame(animate);
   }
+
+  // REVEAL ON SCROLL
+  const observerOptions = { threshold: 0.1 };
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.reveal').forEach(el => {
+    revealObserver.observe(el);
+  });
+  // Trigger hero animation immediately
+  setTimeout(() => document.querySelectorAll('#hero .reveal').forEach(el => el.classList.add('active')), 100);
 
   canvas.addEventListener('mousemove', e => {
     const r = canvas.getBoundingClientRect();
