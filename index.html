@@ -512,6 +512,97 @@
     .skill-core-grid { grid-template-columns: 1fr; }
     .hero-photo-wrap { width: 180px; height: 180px; }
   }
+
+  /* CERT CAROUSEL */
+.cert-carousel-wrap {
+  position: relative;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 2rem;
+}
+.cert-track-outer { width: 100%; overflow: hidden; border-radius: 20px; }
+.cert-track {
+  display: flex;
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+.cert-slide {
+  min-width: 100%; display: flex; align-items: center;
+  gap: 3rem; background: var(--card);
+  border: 0.5px solid var(--border); border-radius: 20px;
+  padding: 2.5rem 3rem; box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+.cert-slide:hover { border-color: var(--accent); }
+.cert-slide-img-wrap {
+  flex-shrink: 0; width: 340px; height: 240px;
+  border-radius: 12px; overflow: hidden;
+  border: 0.5px solid var(--border);
+  background: rgba(124,111,255,0.05);
+  display: flex; align-items: center; justify-content: center;
+}
+.cert-slide-img-wrap img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; display: block; }
+.cert-img-fallback {
+  display: none; font-size: 3.5rem;
+  align-items: center; justify-content: center;
+  width: 100%; height: 100%;
+  background: rgba(124,111,255,0.06);
+}
+.cert-slide-info { display: flex; flex-direction: column; gap: 0.9rem; }
+.cert-slide-badge {
+  display: inline-block; padding: 0.3rem 0.9rem; border-radius: 100px;
+  background: rgba(124,111,255,0.12); border: 0.5px solid var(--border);
+  color: var(--accent); font-size: 0.72rem;
+  letter-spacing: 0.12em; text-transform: uppercase; width: fit-content;
+}
+.cert-slide-name {
+  font-family: 'Syne', sans-serif; font-weight: 700;
+  font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+  color: var(--text); line-height: 1.2;
+}
+.cert-slide-org { font-size: 0.95rem; color: var(--muted); }
+.cert-view-btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.7rem 1.6rem; border-radius: 100px;
+  border: 0.5px solid var(--accent);
+  background: rgba(124,111,255,0.08);
+  color: var(--accent); font-size: 0.88rem; font-weight: 500;
+  text-decoration: none; width: fit-content;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  margin-top: 0.4rem;
+}
+.cert-view-btn:hover {
+  background: rgba(124,111,255,0.18);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(124,111,255,0.2);
+}
+.cert-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 46px; height: 46px; border-radius: 50%;
+  background: var(--card); border: 0.5px solid var(--border);
+  color: var(--muted); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 10;
+  transition: border-color 0.2s, color 0.2s, background 0.2s, transform 0.2s;
+}
+.cert-arrow:hover { border-color: var(--accent); color: var(--accent); background: var(--glow); }
+.cert-arrow svg { width: 20px; height: 20px; }
+.cert-prev { left: -60px; }
+.cert-next { right: -60px; }
+.cert-dots { display: flex; gap: 0.5rem; justify-content: center; margin-top: 0.5rem; }
+.cert-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--border); border: none; cursor: pointer;
+  transition: background 0.3s, width 0.3s; padding: 0;
+}
+.cert-dot.active { background: var(--accent); width: 24px; border-radius: 100px; }
+
+@media(max-width:700px) {
+  .cert-slide { flex-direction: column; padding: 1.5rem; gap: 1.5rem; }
+  .cert-slide-img-wrap { width: 100%; height: 200px; }
+  .cert-prev { left: -10px; }
+  .cert-next { right: -10px; }
+  .cert-arrow { width: 36px; height: 36px; }
+}
 </style>
 </head>
 <body>
@@ -553,7 +644,7 @@
           View Projects
           <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 6h7M6 2.5L9.5 6 6 9.5"/></svg>
         </a>
-        <a href="Harish_Kumar_Chilumula_Resume.pdf" download class="btn-ghost">
+        <a href="assets/Harish_Kumar_Chilumula_Resume.pdf" download class="btn-ghost">
           Download Resume
           <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1v6.5M3 5.5L6 8.5l3-3M2 10.5h8"/></svg>
         </a>
@@ -568,7 +659,7 @@
       <div class="hero-photo-frame">
         <!-- TO ADD YOUR PHOTO: replace the placeholder div below with:
              <img src="your-photo.jpg" alt="Harish Kumar Chilumula"> -->
-        <img src="profile_rounded.png" alt="Harish Kumar Chilumula">
+        <img src="assets/profile_rounded.png" alt="Harish Kumar Chilumula">
       </div>
     </div>
   </div>
@@ -942,32 +1033,141 @@
   <div class="section-label reveal">05 — Credentials</div>
   <h2 class="section-title reveal">Certifications</h2>
   <p class="section-sub reveal">Programs and courses that have shaped my technical foundation across cloud, AI, and data.</p>
-  <div class="certs-grid">
-    <div class="cert-card reveal">
-      <div class="cert-icon">☁️</div>
-      <div class="cert-name">Microsoft Azure</div>
-      <div class="cert-org">Microsoft</div>
+
+  <div class="cert-carousel-wrap reveal">
+    <button class="cert-arrow cert-prev" id="certPrev" aria-label="Previous">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+
+    <div class="cert-track-outer">
+      <div class="cert-track" id="certTrack">
+
+        <div class="cert-slide">
+          <div class="cert-slide-img-wrap">
+            <img src="assets/certificates/msazure.jpeg" alt="Microsoft Azure Certificate"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="cert-img-fallback">☁️</div>
+          </div>
+          <div class="cert-slide-info">
+            <div class="cert-slide-badge">Certified</div>
+            <div class="cert-slide-name">Microsoft Azure</div>
+            <div class="cert-slide-org">Microsoft</div>
+            <a href="assets/certificates/msazure.jpeg" target="_blank" rel="noopener" class="cert-view-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/></svg>
+              View Certificate
+            </a>
+          </div>
+        </div>
+
+        <div class="cert-slide">
+          <div class="cert-slide-img-wrap">
+            <img src="assets/certificates/datascience.jpeg" alt="Emerging Technologies Certificate"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="cert-img-fallback">💡</div>
+          </div>
+          <div class="cert-slide-info">
+            <div class="cert-slide-badge">Certified</div>
+            <div class="cert-slide-name">Data Science</div>
+            <div class="cert-slide-org">Altair</div>
+            <a href="assets/certificates/datascience.jpeg" target="_blank" rel="noopener" class="cert-view-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/></svg>
+              View Certificate
+            </a>
+          </div>
+        </div>
+
+        <div class="cert-slide">
+          <div class="cert-slide-img-wrap">
+            <img src="assets/certificates/python.png" alt="Python Full Stack Certificate"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="cert-img-fallback">🐍</div>
+          </div>
+          <div class="cert-slide-info">
+            <div class="cert-slide-badge">Certified</div>
+            <div class="cert-slide-name">Python Fundamentals</div>
+            <div class="cert-slide-org">Codegnan IT Solutions</div>
+            <a href="assets/certificates/python.png" target="_blank" rel="noopener" class="cert-view-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/></svg>
+              View Certificate
+            </a>
+          </div>
+        </div>
+
+        <div class="cert-slide">
+          <div class="cert-slide-img-wrap">
+            <img src="assets/certificates/gen_ai.jpeg" alt="Data Science Certificate"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="cert-img-fallback">🤖</div>
+          </div>
+          <div class="cert-slide-info">
+            <div class="cert-slide-badge">Certified</div>
+            <div class="cert-slide-name">Generative AI Virtual Internship</div>
+            <div class="cert-slide-org">AWS Academy</div>
+            <a href="assets/certificates/gen_ai.jpeg" target="_blank" rel="noopener" class="cert-view-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/></svg>
+              View Certificate
+            </a>
+          </div>
+        </div>
+
+        <div class="cert-slide">
+          <div class="cert-slide-img-wrap">
+            <img src="assets/certificates/bluestock.jpg" alt="Generative AI Certificate"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="cert-img-fallback">📊</div>
+          </div>
+          <div class="cert-slide-info">
+            <div class="cert-slide-badge">Certified</div>
+            <div class="cert-slide-name">Software Development Engineer</div>
+            <div class="cert-slide-org">Bluestock Fintech</div>
+            <a href="#" target="_blank" rel="noopener" class="cert-view-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/></svg>
+              View Certificate
+            </a>
+          </div>
+        </div>
+
+        <div class="cert-slide">
+          <div class="cert-slide-img-wrap">
+            <img src="assets/certificates/cloud_engineer.jpeg" alt="Emerging Technologies Certificate"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="cert-img-fallback">💡</div>
+          </div>
+          <div class="cert-slide-info">
+            <div class="cert-slide-badge">Certified</div>
+            <div class="cert-slide-name">AI-Powered Cloud Engineer</div>
+            <div class="cert-slide-org">Altair</div>
+            <a href="assets/certificates/cloud_engineer.jpeg" target="_blank" rel="noopener" class="cert-view-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/></svg>
+              View Certificate
+            </a>
+          </div>
+        </div>
+
+        <div class="cert-slide">
+          <div class="cert-slide-img-wrap">
+            <img src="assets/certificates/tcs_ion.jpeg" alt="Emerging Technologies Certificate"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="cert-img-fallback">📊</div>
+          </div>
+          <div class="cert-slide-info">
+            <div class="cert-slide-badge">Certified</div>
+            <div class="cert-slide-name">Young Professional</div>
+            <div class="cert-slide-org">TCS ion</div>
+            <a href="assets/certificates/tcs_ion.jpeg" target="_blank" rel="noopener" class="cert-view-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/></svg>
+              View Certificate
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="cert-card reveal">
-      <div class="cert-icon">💡</div>
-      <div class="cert-name">Emerging Technologies</div>
-      <div class="cert-org">Certification Program</div>
-    </div>
-    <div class="cert-card reveal">
-      <div class="cert-icon">🐍</div>
-      <div class="cert-name">Python Full Stack Development</div>
-      <div class="cert-org">Certification Program</div>
-    </div>
-    <div class="cert-card reveal">
-      <div class="cert-icon">📊</div>
-      <div class="cert-name">Data Science</div>
-      <div class="cert-org">Certification Program</div>
-    </div>
-    <div class="cert-card reveal">
-      <div class="cert-icon">🤖</div>
-      <div class="cert-name">Generative AI</div>
-      <div class="cert-org">Certification Program</div>
-    </div>
+
+    <button class="cert-arrow cert-next" id="certNext" aria-label="Next">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+
+    <div class="cert-dots" id="certDots"></div>
   </div>
 </div>
 
@@ -993,7 +1193,7 @@
       LinkedIn
     </a>
     <a href="tel:+917075064148" class="social-link">📞 +91 7075064148</a>
-    <a href="Harish_Kumar_Chilumula_Resume.pdf" download class="social-link">📄 Resume</a>
+    <a href="assets/Harish_Kumar_Chilumula_Resume.pdf" download class="social-link">📄 Resume</a>
   </div>
 </div>
 
@@ -1184,6 +1384,52 @@
       if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
     });
   });
+
+  /* CERT CAROUSEL */
+(function() {
+  const track = document.getElementById('certTrack');
+  const slides = track ? track.querySelectorAll('.cert-slide') : [];
+  const dotsWrap = document.getElementById('certDots');
+  const prevBtn = document.getElementById('certPrev');
+  const nextBtn = document.getElementById('certNext');
+  if (!track || slides.length === 0) return;
+
+  let current = 0;
+  const total = slides.length;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'cert-dot' + (i === 0 ? ' active' : '');
+    dot.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(dot);
+  });
+
+  function goTo(index) {
+    current = (index + total) % total;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dotsWrap.querySelectorAll('.cert-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  prevBtn.addEventListener('click', () => goTo(current - 1));
+  nextBtn.addEventListener('click', () => goTo(current + 1));
+
+  let startX = 0;
+  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) goTo(current + (diff > 0 ? 1 : -1));
+  });
+
+  let autoTimer = setInterval(() => goTo(current + 1), 5000);
+  [prevBtn, nextBtn].forEach(btn => {
+    btn.addEventListener('click', () => {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(() => goTo(current + 1), 5000);
+    });
+  });
+})();
 </script>
 </body>
 </html>
